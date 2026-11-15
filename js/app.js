@@ -115,12 +115,24 @@ if(id!==requestId){if(!wantsPlayback)audio.pause();return;}
  }
 }
 function stopTransport(){clearTimeout(pauseTimer);++requestId;wantsPlayback=false;fadeTo(0);playState();}
+// Space always controls the music, including while a button or dialog has focus.
 document.addEventListener('keydown',event=>{
- if(event.code!=='Space'||event.repeat||event.altKey||event.ctrlKey||event.metaKey)return;
- // Let text fields, sliders, selects and other buttons retain native keyboard behavior.
- if(event.target.closest('input,textarea,select,[contenteditable],button,a,dialog[open]'))return;
- event.preventDefault();togglePlayback(false);
+ if(event.code!=='Space'||event.altKey||event.ctrlKey||event.metaKey)return;
+ event.preventDefault();event.stopImmediatePropagation();
+ if(!event.repeat)togglePlayback(false);
+},true);
+// Prevent native button/checkbox activation on Space release as well.
+document.addEventListener('keyup',event=>{
+ if(event.code!=='Space'||event.altKey||event.ctrlKey||event.metaKey)return;
+ event.preventDefault();event.stopImmediatePropagation();
+},true);
+// Pointer clicks do not leave a control focused; Tab/Enter navigation stays available.
+document.addEventListener('click',event=>{
+ if(event.detail===0)return;
+ const control=event.target.closest('button,a,summary,input[type="checkbox"]');
+ if(control)requestAnimationFrame(()=>{if(document.activeElement===control)control.blur();});
 });
+document.addEventListener('dragstart',event=>event.preventDefault());
 document.getElementById('enter').onclick=()=>{if(!wantsPlayback)togglePlayback(false);};
 audio.addEventListener('pause',()=>{if(wantsPlayback)stopTransport();});
 setupEnding(audio,document.getElementById('blackout'),()=>{stopTransport();webcam.stop();document.querySelectorAll('dialog[open]').forEach(dialog=>dialog.close());});

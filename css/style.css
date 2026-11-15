@@ -44,3 +44,6 @@ body{color:#40424b}header{inset:40px 48px auto;align-items:center}.wordmark{font
 
 /* Intro content: artist names and song title only. */
 .entry-artist{text-align:center;margin:0 0 26px}.entry-artist p{margin:0;color:#bfc1ce;font-size:clamp(15px,1.7vw,23px);line-height:1.45}.entry-artist p[lang]{font-size:clamp(24px,3vw,40px);margin-top:5px;color:#d3cad7}.entry-title{margin-bottom:0}#enter{margin-top:38px}@media(max-height:600px){.entry-artist{margin-bottom:12px}.entry-artist p{font-size:14px}.entry-artist p[lang]{font-size:23px}#enter{margin-top:20px}}
+
+/* Text and images are part of the interactive surface, not draggable selections. */
+body,body *{-webkit-user-select:none;user-select:none}img,a{-webkit-user-drag:none}
