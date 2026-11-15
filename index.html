@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>My Jinji — Cotton Candy Love Land</title><link rel="stylesheet" href="https://use.typekit.net/iha8ojq.css"><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/story.css"><link rel="stylesheet" href="css/typography.css"><link rel="stylesheet" href="css/intro.css"></head>
+<body><div id="blackout" aria-hidden="true" hidden></div><section id="entry" aria-label="My Jinji introduction">
+
+ <div class="entry-center"><div class="entry-lockup"><div class="entry-artist"><p>Sunset Rollercoaster</p><p lang="zh-Hant">落日飛車</p></div><h1 class="entry-title">My Jinji<span class="sr-only"> — interactive audiovisual experience</span></h1></div>
+
+ <button id="enter" disabled><span>Enter</span><span aria-hidden="true">↗</span></button><span id="loadingText" role="status">Loading</span></div>
+ <div class="entry-bottom"><label class="entry-camera"><input id="introCamera" type="checkbox" checked><span class="entry-switch" aria-hidden="true"></span>Camera</label><button id="openStory">Notes <span aria-hidden="true">↗</span></button></div>
+</section>
+<dialog id="storyDialog" aria-labelledby="storyTitle"><div class="story-top"><span>NOTES</span><button id="closeStory" aria-label="Close">×</button></div><article id="storyArticle" lang="ko"><h1 id="storyTitle">My Jinji</h1><p id="storySubtitle"></p><div id="storyBody"></div></article><section class="story-video" lang="en"><h2><a href="https://www.youtube.com/watch?v=5xwFCtDc0fI" target="_blank" rel="noopener noreferrer">Sunset Rollercoaster - My Jinji (Official Video), 2020</a></h2></section></dialog>
+<main id="stage" tabindex="-1" aria-label="My Jinji interactive artwork"><div class="background light"></div><div class="background deep"></div><div id="artworks"></div><canvas id="water" aria-hidden="true"></canvas></main>
+
+
+
+
+<button id="openCamera" role="switch" aria-checked="false" aria-label="Turn camera on" title="Turn camera on"><svg width="20" height="18" viewBox="0 0 24 20" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M2 5h5l2-3h6l2 3h5v13H2Z"/><circle cx="12" cy="11" r="4"/></svg><span>CAM OFF</span></button>
+<button id="openUpload" class="add-memory" aria-label="Add an image" title="Add an image" disabled>＋</button>
+<dialog id="uploadDialog" aria-labelledby="uploadTitle">
+ <div class="upload-heading"><h1 id="uploadTitle">Upload</h1><button id="closeUpload" aria-label="Close">×</button></div>
+ <div class="upload-previews"><figure><figcaption>Photo</figcaption><label id="uploadDrop" class="preview-surface upload-drop"><img id="originalPreview" alt="Original photo" hidden><span>Choose photo</span><input id="uploadFile" class="sr-only" type="file" accept="image/jpeg,image/png,image/webp" aria-label="Choose photo"></label></figure><figure><figcaption>Artwork</figcaption><div class="preview-surface"><img id="tracePreview" alt="Artwork preview" hidden></div></figure></div>
+ <details id="uploadAdjust"><summary>Adjust</summary><fieldset id="traceControls" disabled><legend class="sr-only">Adjust artwork</legend><label>Light / dark<input id="threshold" type="range" min="20" max="235" value="145"></label><label>Simplify<input id="detail" type="range" min="0.5" max="4" step="0.1" value="1.4"></label><label>Remove small bits<input id="minArea" type="range" min="2" max="180" step="2" value="18"></label><label>Size<input id="uploadSize" type="range" min="0.15" max="0.75" step="0.05" value="0.35"></label><label class="invert-label"><input id="invert" type="checkbox">Swap light and dark</label></fieldset></details>
+ <p id="uploadMessage" role="status"></p><p id="placementNote" class="placement-note"></p>
+ <div class="upload-bottom"><button id="changePhoto">Choose photo</button><button id="addArtwork" disabled>Add</button></div>
+ <ul id="addedArtworks" aria-label="Added artwork"></ul>
+</dialog>
+<div class="lyric-area" aria-label="Lyrics"><p id="lyric"></p></div><p id="status" role="status"></p><audio id="audio" src="assets/audio/My%20Jinji.mp3" preload="auto"></audio><script type="module" src="js/app.js"></script></body></html>

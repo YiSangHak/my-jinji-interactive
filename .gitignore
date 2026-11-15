@@ -1,0 +1,15 @@
+# Local notes and design references (keep on this computer)
+/README.md
+/docs/
+/work/
+
+# OS / editor / Python temporary files
+.DS_Store
+__pycache__/
+*.py[cod]
+.vscode/
+
+# Local secrets
+.env
+.env.*
+!.env.example

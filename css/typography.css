@@ -1,0 +1,36 @@
+@font-face{
+ font-family:"Pretendard";
+ src:url('../assets/fonts/pretendard/Pretendard-Medium.woff2') format('woff2');
+ font-weight:500;font-style:normal;font-display:swap;
+}
+:root{
+ --font-ui:"Pretendard","Apple SD Gothic Neo",sans-serif;
+ --font-ko:var(--font-ui);
+ --font-en-text:var(--font-ui);
+ --font-en-display:"chaparral-pro-display","chaparral-pro",Georgia,serif;
+}
+/* Global type policy overrides older per-screen font shorthands. */
+body,body *{
+ font-family:var(--font-ui)!important;
+ font-weight:500!important;
+ font-style:normal!important;
+ letter-spacing:-.025em!important;
+}
+.entry-title{
+ font-family:var(--font-en-display)!important;
+ font-weight:400!important;font-style:italic!important;line-height:1.02;
+}
+.lyric-area p{
+ font-family:"chaparral-pro",Georgia,serif!important;
+ font-weight:400!important;font-style:italic!important;line-height:1.25;
+}
+.entry-quote p{line-height:1.45}
+.entry-quote cite,#enter,.entry-credit,.entry-camera,#openStory{line-height:1.5}
+.entry-camera,#openStory{font-size:11px}
+#uploadTitle{line-height:1.4}
+#storyTitle{line-height:1.5}
+#storySubtitle{font-size:13px;line-height:1.45}
+#storyBody p{font-size:16px;line-height:1.5}
+.story-video h2{font-size:30px;line-height:1.3}
+.story-video p{font-size:16px;line-height:1.5}
+@media(max-width:700px){#storyBody p,.story-video p{font-size:16px;line-height:1.5}#storyTitle{font-size:27px}}

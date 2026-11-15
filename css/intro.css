@@ -1,0 +1,33 @@
+/* Music-video title-card study: scale hierarchy and imperfect color registration. */
+#entry{background:#080809}
+.entry-center{padding:65px 24px 90px}
+.entry-lockup{
+ --film-yellow:#dce987;
+ --film-fringe:clamp(1.5px,.27vw,3.6px);
+ position:relative;text-align:center;width:min(940px,92vw);
+ filter:blur(.22px);
+}
+.entry-artist{margin:0}
+.entry-artist p,.entry-title{
+ color:var(--film-yellow);
+ text-shadow:calc(-1 * var(--film-fringe)) 0 1px #51d7bfbd,
+             var(--film-fringe) 1px 1px #d66b8099,
+             0 2px 5px #5667c98c,0 0 13px #dce98724;
+}
+.entry-artist p{font-size:clamp(22px,4.6vw,66px);line-height:1.1;white-space:nowrap}
+.entry-artist p[lang]{font-size:clamp(66px,10.5vw,152px);line-height:1.15;margin:7px 0 0;color:var(--film-yellow)}
+.entry-title{
+ background:none;-webkit-background-clip:initial;background-clip:initial;
+ -webkit-text-fill-color:currentColor;
+ font-size:clamp(58px,7.6vw,110px);line-height:1.15;
+ margin:27px 0 0;padding:0 .15em .1em;
+}
+/* Very faint raster lines live only over the lettering, not the reading UI. */
+.entry-lockup:after{
+ content:'';position:absolute;inset:0;pointer-events:none;
+ background:repeating-linear-gradient(0deg,#08080900 0 2px,#08080920 2px 3px);
+ opacity:.35;
+}
+#enter{margin-top:32px}
+@media(max-width:700px){.entry-center{padding:55px 18px 85px}.entry-title{margin-top:20px}.entry-artist p[lang]{margin-top:9px}#enter{margin-top:32px}}
+@media(max-height:600px){.entry-artist p{font-size:min(4.4vw,38px)}.entry-artist p[lang]{font-size:min(10vw,84px);margin-top:2px}.entry-title{font-size:min(7.5vw,64px);margin-top:14px}#enter{margin-top:18px}.entry-center{padding:45px 20px 60px}}
